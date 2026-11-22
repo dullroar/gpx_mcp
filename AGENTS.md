@@ -1,21 +1,9 @@
 # Agent contract
 
-This repository is `repo-template`. It is the template for all new repositories.
-Create a new repository from it. Do not build products in it.
+This repository is `gpx_mcp`. It will provide a FastMCP interface for local GPX analysis and CSV exports.
 
-<!-- TEMPLATE-ONLY START: delete this section in every repository created from this template. -->
-## Template-only rules
+Before changing this repository's structure, read [repo-template](https://github.com/dullroar/repo-template) and [ralph-looper](https://github.com/dullroar/ralph-looper). Account for their layout, plan format, indexes, worktrees, and validation commands.
 
-- This repository defines the standard layout, rules and scripts. Other repositories copy them.
-- Keep it generic. Do not add project names, personal paths, hosts or user names.
-- The files `scripts/hello-listing.sh`, `scripts/hello-listing.ps1` and `memory/example-memory.md` are examples. Delete them in new repositories.
-- After you create a new repository from the template:
-  1. Replace the first paragraph of this file with one or two sentences about the new project.
-  2. Delete this section.
-  3. Delete the `Dockerfile` if the project is only for Windows. Add Windows Sandbox instructions to `docs/` instead.
-  4. Update `README.md` and `LICENSE`.
-  5. Run `python3 scripts/build_indexes.py`.
-<!-- TEMPLATE-ONLY END -->
 
 ## Standing rules
 
