@@ -11,6 +11,7 @@ touches:
   - scripts/test_docker.sh
   - plans/sharpen-mcp/steps/03-core-workflows.md
 lane: none
+requirements: [R3]
 gate: bash scripts/test_docker.sh && python3 scripts/check_context.py && git diff --check
 evidence: ""
 ---

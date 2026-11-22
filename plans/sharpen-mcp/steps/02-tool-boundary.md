@@ -14,6 +14,7 @@ touches:
   - tests/**
   - plans/sharpen-mcp/steps/02-tool-boundary.md
 lane: none
+requirements: [R2]
 gate: test -s tests/test_tool_contract.py && bash scripts/test_docker.sh && python3 scripts/check_context.py && git diff --check
 evidence: ""
 ---

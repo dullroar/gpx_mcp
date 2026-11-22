@@ -9,6 +9,7 @@ touches:
   - docs/tool-reference.md
   - plans/sharpen-mcp/steps/05-docs-and-final-gate.md
 lane: none
+requirements: [R5]
 gate: test -s docs/tool-reference.md && bash scripts/test_docker.sh && python3 scripts/check_context.py && git diff --check
 evidence: ""
 ---

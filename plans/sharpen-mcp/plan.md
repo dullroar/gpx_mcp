@@ -8,6 +8,8 @@ Keep this a thin FastMCP layer over a maintained parser, with project-owned meas
 
 The [catalog](./catalog.md) groups user workflows into two implementation steps. Each uses the official backend's supported operations through a typed MCP interface. Research starts with the primary references in the catalog and continues with the tool version installed in the test image. Retain examples, exact checks and tradeoffs in the repository.
 
+See the [acceptance requirements](./spec.md) for the gate coverage.
+
 ## Shared contract
 
 Use the host and Docker entry points already documented for this repository. Keep all fixtures synthetic, small, and local. Run Docker tests without credentials or runtime network. No sibling repository may be a build or fixture dependency.

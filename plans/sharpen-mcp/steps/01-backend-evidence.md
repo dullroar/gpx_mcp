@@ -7,6 +7,7 @@ touches:
   - docs/README.md
   - plans/sharpen-mcp/steps/01-backend-evidence.md
 lane: none
+requirements: [R1]
 gate: test -s docs/backend-notes.md && python3 scripts/check_context.py && git diff --check
 evidence: ""
 ---

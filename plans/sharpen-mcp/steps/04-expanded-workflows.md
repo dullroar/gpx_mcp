@@ -12,6 +12,7 @@ touches:
   - docs/backend-notes.md
   - plans/sharpen-mcp/steps/04-expanded-workflows.md
 lane: none
+requirements: [R4]
 gate: bash scripts/test_docker.sh && python3 scripts/check_context.py && git diff --check
 evidence: ""
 ---
