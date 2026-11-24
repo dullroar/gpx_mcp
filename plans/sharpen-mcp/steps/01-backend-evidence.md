@@ -1,6 +1,6 @@
 ---
 id: 01-backend-evidence
-status: pending
+status: done
 depends_on: []
 touches:
   - docs/backend-notes.md
@@ -9,7 +9,7 @@ touches:
 lane: none
 requirements: [R1]
 gate: test -s docs/backend-notes.md && python3 scripts/check_context.py && git diff --check
-evidence: ""
+evidence: "2026-11-24 UTC. Probes run with gpxpy 1.6.2, defusedxml 0.7.1, geographiclib 2.1. Results in docs/backend-notes.md. Gate: test -s docs/backend-notes.md && python3 scripts/check_context.py && git diff --check passed."
 ---
 
 # Verify the backend capabilities
@@ -26,4 +26,4 @@ Write the results to `docs/backend-notes.md` and link it from `docs/README.md`. 
 
 ## Resume notes
 
-Pending.
+Done. No GPSBabel or GDAL probe was run; they are reference-only.

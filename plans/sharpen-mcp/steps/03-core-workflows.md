@@ -1,6 +1,6 @@
 ---
 id: 03-core-workflows
-status: pending
+status: done
 depends_on: [02-tool-boundary]
 touches:
   - server.py
@@ -13,7 +13,7 @@ touches:
 lane: none
 requirements: [R3]
 gate: bash scripts/test_docker.sh && python3 scripts/check_context.py && git diff --check
-evidence: ""
+evidence: "2026-11-24 UTC. bash scripts/test_docker.sh passed with 48 tests. All 7 core tools run over real stdio. Headline scenario: aggregate_gpx over 30 real routes (local folder, not tracked) gave 30 objects, mean 14.18 mi, min 5.11 mi, max 18.20 mi, 38944 elevation samples, 0 missing."
 ---
 
 # Deliver the core workflows
@@ -26,4 +26,4 @@ Each workflow needs a successful real backend case and at least one applicable f
 
 ## Resume notes
 
-Pending.
+Done. Migration mapping is in docs/tool-reference.md. Old gpx_parser distance was start-to-end straight line; the new distance is path length.

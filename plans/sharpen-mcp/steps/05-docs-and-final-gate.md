@@ -1,6 +1,6 @@
 ---
 id: 05-docs-and-final-gate
-status: pending
+status: done
 depends_on: [04-expanded-workflows]
 touches:
   - README.md
@@ -11,7 +11,7 @@ touches:
 lane: none
 requirements: [R5]
 gate: test -s docs/tool-reference.md && bash scripts/test_docker.sh && python3 scripts/check_context.py && git diff --check
-evidence: ""
+evidence: "2026-11-24 UTC. Final gate: test -s docs/tool-reference.md && bash scripts/test_docker.sh && python3 scripts/check_context.py && git diff --check passed. Backends: gpxpy 1.6.2, mcp 1.30.0, geographiclib 2.1, defusedxml 0.7.1, Python 3.12 (Docker). Tests: 48 passed in Docker (47 passed and 1 skipped on Windows host: symlink test). Live schemas equal tests/schemas.json."
 ---
 
 # Write the user guide and run the full gate
@@ -26,4 +26,4 @@ Explain when to prefer this server for its domain. Show how typed repeatable ope
 
 ## Resume notes
 
-Pending.
+Done. README.md, AGENTS.md and docs were updated together.

@@ -25,5 +25,9 @@ Read the list. Run only the scripts whose "Run me when" line matches your task.
   Run me when: never directly. Other scripts in this folder import it.
 * [scan_secrets.py](./scan_secrets.py)
   Run me when: I changed AGENTS.md, CLAUDE.md, docs/, memory/ or plans/, and before every pull request.
+* [snapshot_schemas.py](./snapshot_schemas.py)
+  Run me when: I changed a tool signature on purpose and tests/test_tool_contract.py reports a schema diff.
+* [test_docker.sh](./test_docker.sh)
+  Run me when: I changed server code, tool schemas or tests, and before every pull request.
 
 <!-- END GENERATED INDEX -->

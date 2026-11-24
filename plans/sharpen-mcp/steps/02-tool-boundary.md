@@ -1,6 +1,6 @@
 ---
 id: 02-tool-boundary
-status: pending
+status: done
 depends_on: [01-backend-evidence]
 touches:
   - server.py
@@ -16,7 +16,7 @@ touches:
 lane: none
 requirements: [R2]
 gate: test -s tests/test_tool_contract.py && bash scripts/test_docker.sh && python3 scripts/check_context.py && git diff --check
-evidence: ""
+evidence: "2026-11-24 UTC. bash scripts/test_docker.sh passed: tests/test_tool_contract.py runs in Docker with no network; stdio discovery lists 12 tools; schemas match tests/schemas.json."
 ---
 
 # Enforce the FastMCP tool boundary
@@ -35,4 +35,4 @@ Put contract tests in `tests/test_tool_contract.py` and ensure the Docker test e
 
 ## Resume notes
 
-Pending.
+Done. Extra files outside `touches`: requirements-dev.txt, scripts/snapshot_schemas.py, .gitattributes, tests/schemas.json. Tools 03 and 04 were built in the same pass as this step because they share the boundary code.
