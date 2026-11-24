@@ -71,3 +71,13 @@ Run `python3 scripts/build_indexes.py` after any change to a memory, a plan or a
 ## Validation
 
 Run the smallest check that proves your change. For any change to Markdown, memory, plans or scripts, run `python3 scripts/check_context.py`.
+
+## Domain guidance
+
+`gpx_mcp` is a FastMCP server with 12 bounded tools for GPX analysis and CSV export. Read [README.md](./README.md) for use and [docs/tool-reference.md](./docs/tool-reference.md) for each tool. Rules for code changes:
+
+- Add no raw XML query, no passthrough and no free-form option. Every tool input is typed and bounded.
+- Check all paths with `gpx_tools/paths.py` before any file access. Scan XML with `gpx_tools/loader.py` before parsing.
+- Keep measurement rules in `gpx_tools/measure.py` and CSV rules in `gpx_tools/csvout.py`. Change `docs/backend-notes.md` with them.
+- After a deliberate tool-signature change, run `python3 scripts/snapshot_schemas.py` and review the diff of `tests/schemas.json`.
+- Run `bash scripts/test_docker.sh` before every pull request.

@@ -1,0 +1,633 @@
+{
+ "aggregate_gpx": {
+  "properties": {
+   "distance_unit": {
+    "default": "km",
+    "enum": [
+     "m",
+     "km",
+     "mi"
+    ],
+    "title": "Distance Unit",
+    "type": "string"
+   },
+   "elevation_unit": {
+    "default": "m",
+    "enum": [
+     "m",
+     "ft"
+    ],
+    "title": "Elevation Unit",
+    "type": "string"
+   },
+   "object_kind": {
+    "enum": [
+     "route",
+     "track"
+    ],
+    "title": "Object Kind",
+    "type": "string"
+   },
+   "paths": {
+    "description": "GPX file paths or file-name wildcards under the input roots.",
+    "items": {
+     "type": "string"
+    },
+    "maxItems": 200,
+    "minItems": 1,
+    "title": "Paths",
+    "type": "array"
+   }
+  },
+  "required": [
+   "paths",
+   "object_kind"
+  ],
+  "title": "aggregate_gpxArguments",
+  "type": "object"
+ },
+ "compare_gpx": {
+  "properties": {
+   "distance_unit": {
+    "default": "km",
+    "enum": [
+     "m",
+     "km",
+     "mi"
+    ],
+    "title": "Distance Unit",
+    "type": "string"
+   },
+   "elevation_unit": {
+    "default": "m",
+    "enum": [
+     "m",
+     "ft"
+    ],
+    "title": "Elevation Unit",
+    "type": "string"
+   },
+   "object_kind": {
+    "default": "track",
+    "enum": [
+     "route",
+     "track"
+    ],
+    "title": "Object Kind",
+    "type": "string"
+   },
+   "path_a": {
+    "maxLength": 1024,
+    "minLength": 1,
+    "title": "Path A",
+    "type": "string"
+   },
+   "path_b": {
+    "maxLength": 1024,
+    "minLength": 1,
+    "title": "Path B",
+    "type": "string"
+   }
+  },
+  "required": [
+   "path_a",
+   "path_b"
+  ],
+  "title": "compare_gpxArguments",
+  "type": "object"
+ },
+ "export_elevation_profile": {
+  "properties": {
+   "distance_unit": {
+    "default": "km",
+    "enum": [
+     "m",
+     "km",
+     "mi"
+    ],
+    "title": "Distance Unit",
+    "type": "string"
+   },
+   "elevation_unit": {
+    "default": "m",
+    "enum": [
+     "m",
+     "ft"
+    ],
+    "title": "Elevation Unit",
+    "type": "string"
+   },
+   "object_kind": {
+    "default": "track",
+    "enum": [
+     "route",
+     "track",
+     "both"
+    ],
+    "title": "Object Kind",
+    "type": "string"
+   },
+   "output_path": {
+    "description": "Output .csv path under the output roots. The folder must exist.",
+    "maxLength": 1024,
+    "minLength": 1,
+    "title": "Output Path",
+    "type": "string"
+   },
+   "overwrite": {
+    "default": false,
+    "title": "Overwrite",
+    "type": "boolean"
+   },
+   "paths": {
+    "description": "GPX file paths or file-name wildcards under the input roots.",
+    "items": {
+     "type": "string"
+    },
+    "maxItems": 200,
+    "minItems": 1,
+    "title": "Paths",
+    "type": "array"
+   },
+   "skip_failed": {
+    "default": false,
+    "title": "Skip Failed",
+    "type": "boolean"
+   }
+  },
+  "required": [
+   "paths",
+   "output_path"
+  ],
+  "title": "export_elevation_profileArguments",
+  "type": "object"
+ },
+ "export_laps_csv": {
+  "properties": {
+   "elevation_unit": {
+    "default": "m",
+    "enum": [
+     "m",
+     "ft"
+    ],
+    "title": "Elevation Unit",
+    "type": "string"
+   },
+   "lap_length": {
+    "default": 1.0,
+    "exclusiveMinimum": 0,
+    "maximum": 100000,
+    "title": "Lap Length",
+    "type": "number"
+   },
+   "lap_unit": {
+    "default": "km",
+    "enum": [
+     "m",
+     "km",
+     "mi"
+    ],
+    "title": "Lap Unit",
+    "type": "string"
+   },
+   "object_kind": {
+    "default": "track",
+    "enum": [
+     "route",
+     "track",
+     "both"
+    ],
+    "title": "Object Kind",
+    "type": "string"
+   },
+   "output_path": {
+    "description": "Output .csv path under the output roots. The folder must exist.",
+    "maxLength": 1024,
+    "minLength": 1,
+    "title": "Output Path",
+    "type": "string"
+   },
+   "overwrite": {
+    "default": false,
+    "title": "Overwrite",
+    "type": "boolean"
+   },
+   "paths": {
+    "description": "GPX file paths or file-name wildcards under the input roots.",
+    "items": {
+     "type": "string"
+    },
+    "maxItems": 200,
+    "minItems": 1,
+    "title": "Paths",
+    "type": "array"
+   },
+   "skip_failed": {
+    "default": false,
+    "title": "Skip Failed",
+    "type": "boolean"
+   }
+  },
+  "required": [
+   "paths",
+   "output_path"
+  ],
+  "title": "export_laps_csvArguments",
+  "type": "object"
+ },
+ "export_points_csv": {
+  "properties": {
+   "distance_unit": {
+    "default": "m",
+    "enum": [
+     "m",
+     "km",
+     "mi"
+    ],
+    "title": "Distance Unit",
+    "type": "string"
+   },
+   "elevation_unit": {
+    "default": "m",
+    "enum": [
+     "m",
+     "ft"
+    ],
+    "title": "Elevation Unit",
+    "type": "string"
+   },
+   "object_kind": {
+    "default": "track",
+    "enum": [
+     "route",
+     "track",
+     "both"
+    ],
+    "title": "Object Kind",
+    "type": "string"
+   },
+   "output_path": {
+    "description": "Output .csv path under the output roots. The folder must exist.",
+    "maxLength": 1024,
+    "minLength": 1,
+    "title": "Output Path",
+    "type": "string"
+   },
+   "overwrite": {
+    "default": false,
+    "title": "Overwrite",
+    "type": "boolean"
+   },
+   "paths": {
+    "description": "GPX file paths or file-name wildcards under the input roots.",
+    "items": {
+     "type": "string"
+    },
+    "maxItems": 200,
+    "minItems": 1,
+    "title": "Paths",
+    "type": "array"
+   },
+   "skip_failed": {
+    "default": false,
+    "title": "Skip Failed",
+    "type": "boolean"
+   }
+  },
+  "required": [
+   "paths",
+   "output_path"
+  ],
+  "title": "export_points_csvArguments",
+  "type": "object"
+ },
+ "export_segment_csv": {
+  "properties": {
+   "distance_unit": {
+    "default": "km",
+    "enum": [
+     "m",
+     "km",
+     "mi"
+    ],
+    "title": "Distance Unit",
+    "type": "string"
+   },
+   "elevation_unit": {
+    "default": "m",
+    "enum": [
+     "m",
+     "ft"
+    ],
+    "title": "Elevation Unit",
+    "type": "string"
+   },
+   "object_kind": {
+    "default": "track",
+    "enum": [
+     "route",
+     "track",
+     "both"
+    ],
+    "title": "Object Kind",
+    "type": "string"
+   },
+   "output_path": {
+    "description": "Output .csv path under the output roots. The folder must exist.",
+    "maxLength": 1024,
+    "minLength": 1,
+    "title": "Output Path",
+    "type": "string"
+   },
+   "overwrite": {
+    "default": false,
+    "title": "Overwrite",
+    "type": "boolean"
+   },
+   "paths": {
+    "description": "GPX file paths or file-name wildcards under the input roots.",
+    "items": {
+     "type": "string"
+    },
+    "maxItems": 200,
+    "minItems": 1,
+    "title": "Paths",
+    "type": "array"
+   },
+   "skip_failed": {
+    "default": false,
+    "title": "Skip Failed",
+    "type": "boolean"
+   }
+  },
+  "required": [
+   "paths",
+   "output_path"
+  ],
+  "title": "export_segment_csvArguments",
+  "type": "object"
+ },
+ "export_summary_csv": {
+  "properties": {
+   "distance_unit": {
+    "default": "km",
+    "enum": [
+     "m",
+     "km",
+     "mi"
+    ],
+    "title": "Distance Unit",
+    "type": "string"
+   },
+   "elevation_unit": {
+    "default": "m",
+    "enum": [
+     "m",
+     "ft"
+    ],
+    "title": "Elevation Unit",
+    "type": "string"
+   },
+   "object_kind": {
+    "default": "both",
+    "enum": [
+     "route",
+     "track",
+     "both"
+    ],
+    "title": "Object Kind",
+    "type": "string"
+   },
+   "output_path": {
+    "description": "Output .csv path under the output roots. The folder must exist.",
+    "maxLength": 1024,
+    "minLength": 1,
+    "title": "Output Path",
+    "type": "string"
+   },
+   "overwrite": {
+    "default": false,
+    "title": "Overwrite",
+    "type": "boolean"
+   },
+   "paths": {
+    "description": "GPX file paths or file-name wildcards under the input roots.",
+    "items": {
+     "type": "string"
+    },
+    "maxItems": 200,
+    "minItems": 1,
+    "title": "Paths",
+    "type": "array"
+   },
+   "skip_failed": {
+    "default": false,
+    "title": "Skip Failed",
+    "type": "boolean"
+   }
+  },
+  "required": [
+   "paths",
+   "output_path"
+  ],
+  "title": "export_summary_csvArguments",
+  "type": "object"
+ },
+ "export_waypoints_csv": {
+  "properties": {
+   "elevation_unit": {
+    "default": "m",
+    "enum": [
+     "m",
+     "ft"
+    ],
+    "title": "Elevation Unit",
+    "type": "string"
+   },
+   "include_elevation": {
+    "default": true,
+    "title": "Include Elevation",
+    "type": "boolean"
+   },
+   "output_path": {
+    "description": "Output .csv path under the output roots. The folder must exist.",
+    "maxLength": 1024,
+    "minLength": 1,
+    "title": "Output Path",
+    "type": "string"
+   },
+   "overwrite": {
+    "default": false,
+    "title": "Overwrite",
+    "type": "boolean"
+   },
+   "paths": {
+    "description": "GPX file paths or file-name wildcards under the input roots.",
+    "items": {
+     "type": "string"
+    },
+    "maxItems": 200,
+    "minItems": 1,
+    "title": "Paths",
+    "type": "array"
+   },
+   "skip_failed": {
+    "default": false,
+    "title": "Skip Failed",
+    "type": "boolean"
+   }
+  },
+  "required": [
+   "paths",
+   "output_path"
+  ],
+  "title": "export_waypoints_csvArguments",
+  "type": "object"
+ },
+ "inspect_gpx": {
+  "properties": {
+   "paths": {
+    "description": "GPX file paths or file-name wildcards under the input roots.",
+    "items": {
+     "type": "string"
+    },
+    "maxItems": 200,
+    "minItems": 1,
+    "title": "Paths",
+    "type": "array"
+   }
+  },
+  "required": [
+   "paths"
+  ],
+  "title": "inspect_gpxArguments",
+  "type": "object"
+ },
+ "summarize_gpx": {
+  "properties": {
+   "distance_unit": {
+    "default": "km",
+    "enum": [
+     "m",
+     "km",
+     "mi"
+    ],
+    "title": "Distance Unit",
+    "type": "string"
+   },
+   "elevation_unit": {
+    "default": "m",
+    "enum": [
+     "m",
+     "ft"
+    ],
+    "title": "Elevation Unit",
+    "type": "string"
+   },
+   "object_kind": {
+    "default": "both",
+    "enum": [
+     "route",
+     "track",
+     "both"
+    ],
+    "title": "Object Kind",
+    "type": "string"
+   },
+   "paths": {
+    "description": "GPX file paths or file-name wildcards under the input roots.",
+    "items": {
+     "type": "string"
+    },
+    "maxItems": 200,
+    "minItems": 1,
+    "title": "Paths",
+    "type": "array"
+   }
+  },
+  "required": [
+   "paths"
+  ],
+  "title": "summarize_gpxArguments",
+  "type": "object"
+ },
+ "summarize_timing": {
+  "properties": {
+   "distance_unit": {
+    "default": "km",
+    "enum": [
+     "m",
+     "km",
+     "mi"
+    ],
+    "title": "Distance Unit",
+    "type": "string"
+   },
+   "max_gap_s": {
+    "default": 600.0,
+    "maximum": 86400,
+    "minimum": 1,
+    "title": "Max Gap S",
+    "type": "number"
+   },
+   "max_speed_mps": {
+    "default": 15.0,
+    "maximum": 100,
+    "minimum": 1,
+    "title": "Max Speed Mps",
+    "type": "number"
+   },
+   "moving_threshold_mps": {
+    "default": 0.5,
+    "maximum": 5,
+    "minimum": 0.01,
+    "title": "Moving Threshold Mps",
+    "type": "number"
+   },
+   "object_kind": {
+    "default": "both",
+    "enum": [
+     "route",
+     "track",
+     "both"
+    ],
+    "title": "Object Kind",
+    "type": "string"
+   },
+   "paths": {
+    "description": "GPX file paths or file-name wildcards under the input roots.",
+    "items": {
+     "type": "string"
+    },
+    "maxItems": 200,
+    "minItems": 1,
+    "title": "Paths",
+    "type": "array"
+   }
+  },
+  "required": [
+   "paths"
+  ],
+  "title": "summarize_timingArguments",
+  "type": "object"
+ },
+ "validate_gpx": {
+  "properties": {
+   "paths": {
+    "description": "GPX file paths or file-name wildcards under the input roots.",
+    "items": {
+     "type": "string"
+    },
+    "maxItems": 200,
+    "minItems": 1,
+    "title": "Paths",
+    "type": "array"
+   }
+  },
+  "required": [
+   "paths"
+  ],
+  "title": "validate_gpxArguments",
+  "type": "object"
+ }
+}

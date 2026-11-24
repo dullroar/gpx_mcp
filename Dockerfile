@@ -1,23 +1,24 @@
-# Ubuntu environment for this project.
-# Windows-only project? Delete this file. Add Windows Sandbox instructions to docs/ instead.
+# gpx_mcp image: runs the stdio server and the test suite.
 #
-# Build: docker build -t repo-template .
-# Run:   docker run --rm -it -v "$PWD":/work repo-template
-FROM ubuntu:24.04
+# Build: docker build -t gpx-mcp .
+# Test:  bash scripts/test_docker.sh
+# Serve: docker run --rm -i --network none -v "$PWD/gpx":/data:ro -v "$PWD/out":/out gpx-mcp
+FROM python:3.12-slim-bookworm
 
-ENV DEBIAN_FRONTEND=noninteractive
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 \
+    GPX_MCP_INPUT_ROOTS=/data GPX_MCP_OUTPUT_ROOTS=/out
 
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-        bash ca-certificates curl git python3 util-linux \
-    && rm -rf /var/lib/apt/lists/*
+WORKDIR /app
+COPY requirements.txt requirements-dev.txt ./
+# The build has network. The run does not need it.
+RUN python -m pip install --no-cache-dir -r requirements-dev.txt \
+    && useradd --create-home --user-group gpx \
+    && mkdir -p /data /out && chown gpx:gpx /out
 
-# Run as a normal user. Do not run project code as root.
-RUN useradd --create-home --shell /bin/bash dev
-USER dev
-WORKDIR /work
+COPY server.py ./
+COPY gpx_tools ./gpx_tools
+COPY tests ./tests
+COPY scripts/snapshot_schemas.py ./scripts/snapshot_schemas.py
+USER gpx
 
-# Git refuses a mounted repository that another user owns.
-RUN git config --global --add safe.directory /work
-
-CMD ["bash"]
+CMD ["python", "server.py"]

@@ -1,6 +1,6 @@
 ---
 id: 04-expanded-workflows
-status: pending
+status: done
 depends_on: [03-core-workflows]
 touches:
   - server.py
@@ -14,7 +14,7 @@ touches:
 lane: none
 requirements: [R4]
 gate: bash scripts/test_docker.sh && python3 scripts/check_context.py && git diff --check
-evidence: ""
+evidence: "2026-11-24 UTC. bash scripts/test_docker.sh passed with 48 tests. All 5 expanded tools implemented and tested. No backend blocker: gpxpy and geographiclib cover every row. GPSBabel and GDAL were not needed."
 ---
 
 # Deliver the expanded workflows
@@ -25,4 +25,4 @@ If a pinned backend lacks a capability, record the actual failing probe and safe
 
 ## Resume notes
 
-Pending.
+Done.

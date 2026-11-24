@@ -1,0 +1,4 @@
+gpxpy==1.6.2
+mcp==1.30.0
+defusedxml==0.7.1
+geographiclib==2.1
